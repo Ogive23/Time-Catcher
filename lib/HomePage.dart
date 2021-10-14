@@ -24,13 +24,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     {
       'identifier': List.generate(10, (index) => Random().nextInt(5)).join(),
       'image':
-      'https://www.pngall.com/wp-content/uploads/2016/05/Man-PNG-Image.png',
+          'https://www.pngall.com/wp-content/uploads/2016/05/Man-PNG-Image.png',
       'name': 'Mohamed'
     },
     {
       'identifier': List.generate(10, (index) => Random().nextInt(5)).join(),
       'image':
-      'https://img.pngio.com/slide2-menpng-rm-web-lab-men-png-635_540.png',
+          'https://img.pngio.com/slide2-menpng-rm-web-lab-men-png-635_540.png',
       'name': 'Ali'
     },
     {
@@ -75,10 +75,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     h = MediaQuery.of(context).size.height;
     w = MediaQuery.of(context).size.width;
-    return Center(
+    return Container(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
+          Padding(
+
+            padding: EdgeInsets.symmetric(horizontal: w/25),child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Friends',
+                style: TextStyle(
+                    color: Color.fromRGBO(82, 86, 89, 1.0),
+                    fontSize: 18),
+              ),
+            ),
+          ),
           AnimatedContainer(
             duration: Duration(seconds: 1),
             child: CarouselSlider(
@@ -208,24 +220,29 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 color: Colors.transparent,
                                 child: Container(
                                   decoration:
-                                      BoxDecoration(color: Colors.brown.withOpacity(0.1)),
+                                      BoxDecoration(color: Colors.brown[100]),
                                   child: Row(
                                     children: [
                                       SizedBox(
-                                        width: w/4,
+                                        width: w / 4,
                                         child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           children: [
-                                          Text(list[index]['name']!,textAlign: TextAlign.center,style: TextStyle(
-                                            fontFamily: 'Delius',
-                                            fontWeight: FontWeight.bold
-                                          ),)
-                                        ],),
+                                            Text(
+                                              list[index]['name']!,
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontFamily: 'Delius',
+                                                  fontWeight: FontWeight.bold),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                       Image.network(
                                         list[index]['image']!,
-                                        fit: BoxFit.contain,
-                                        width: w/2,
+                                        fit: BoxFit.fitHeight,
+                                        width: w / 2,
                                         height: h / 4,
                                       ),
                                     ],

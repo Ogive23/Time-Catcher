@@ -81,11 +81,11 @@ class _MyHomePageState extends State<MyHomePage> {
     w = MediaQuery.of(context).size.width;
     // test();
     return Container(
-      color: Colors.white,
+      color: Color.fromRGBO(233, 228, 225, 1.0),
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.transparent,
             elevation: 0.0,
             // bottom: PreferredSize(child: SizedBox(height: h/20,), preferredSize: Size(0,h/20)),
             // shape: RoundedRectangleBorder(
@@ -176,7 +176,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-          backgroundColor: Colors.white,
+          backgroundColor:
+           Color.fromRGBO(233, 228, 225, 1.0),
           body: Stack(
             children: [
               HomePage(),
