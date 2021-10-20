@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "632370132906",
+    "project_id": "time-catcher-88286",
+    "storage_bucket": "time-catcher-88286.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632370132906:android:ab900aa979fffd271dddd3",
+        "android_client_info": {
+          "package_name": "com.ogive.time_catcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632370132906-5rgii7helnac0o221jbd4h25qpe0orja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPqwIDBykpNwwuVyAIioJShO8oHecJdEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632370132906-5rgii7helnac0o221jbd4h25qpe0orja.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
