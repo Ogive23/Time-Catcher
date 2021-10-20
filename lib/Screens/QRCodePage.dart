@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-import 'Custom Widgets/FriendQRCodeScanner.dart';
+import '../Custom Widgets/FriendQRCodeScanner.dart';
 
 class QRCodePage extends StatefulWidget {
   @override

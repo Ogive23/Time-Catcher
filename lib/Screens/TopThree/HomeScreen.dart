@@ -1,15 +1,25 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:animate_icons/animate_icons.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:time_catcher/CustomWidgets/CustomLoadingText.dart';
+import 'package:time_catcher/CustomWidgets/CustomSpacing.dart';
+import 'package:time_catcher/Session/session_manager.dart';
+import 'package:time_catcher/Shared%20Data/app_language.dart';
+import 'package:time_catcher/Shared%20Data/app_theme.dart';
+import 'package:time_catcher/Shared%20Data/common_data.dart';
 import 'package:flutter/material.dart';
-
-class HomePage extends StatefulWidget {
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:provider/provider.dart';
+import '../../GeneralInfo.dart';
+class HomeScreen extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late AnimationController scaleAnimationController;
   late AnimationController translateAnimationController;
   late Animation<double> scaleAnimation;
@@ -24,13 +34,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     {
       'identifier': List.generate(10, (index) => Random().nextInt(5)).join(),
       'image':
-          'https://www.pngall.com/wp-content/uploads/2016/05/Man-PNG-Image.png',
+      'https://www.pngall.com/wp-content/uploads/2016/05/Man-PNG-Image.png',
       'name': 'Mohamed'
     },
     {
       'identifier': List.generate(10, (index) => Random().nextInt(5)).join(),
       'image':
-          'https://img.pngio.com/slide2-menpng-rm-web-lab-men-png-635_540.png',
+      'https://img.pngio.com/slide2-menpng-rm-web-lab-men-png-635_540.png',
       'name': 'Ali'
     },
     {
@@ -41,6 +51,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   ];
 
   int? selectedIndex;
+
   @override
   void initState() {
     super.initState();
@@ -73,23 +84,29 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    h = MediaQuery.of(context).size.height;
-    w = MediaQuery.of(context).size.width;
+    h = MediaQuery
+        .of(context)
+        .size
+        .height;
+    w = MediaQuery
+        .of(context)
+        .size
+        .width;
     return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Padding(
 
-            padding: EdgeInsets.symmetric(horizontal: w/25),child: Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Friends',
-                style: TextStyle(
-                    color: Color.fromRGBO(82, 86, 89, 1.0),
-                    fontSize: 18),
-              ),
+            padding: EdgeInsets.symmetric(horizontal: w / 25), child: Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              'Friends',
+              style: TextStyle(
+                  color: Color.fromRGBO(82, 86, 89, 1.0),
+                  fontSize: 18),
             ),
+          ),
           ),
           AnimatedContainer(
             duration: Duration(seconds: 1),
@@ -98,7 +115,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 height: h / 4,
                 aspectRatio: 1.0,
                 onPageChanged:
-                    selectedIndex == null ? (index, reason) {} : null,
+                selectedIndex == null ? (index, reason) {} : null,
                 onScrolled: selectedIndex == null ? (value) {} : null,
                 initialPage: 0,
                 enableInfiniteScroll: true,
@@ -159,7 +176,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                 },
                                                 style: ButtonStyle(
                                                     alignment:
-                                                        Alignment.centerRight),
+                                                    Alignment.centerRight),
                                                 child: SizedBox(
                                                     child: Text('Snooze'))))),
                                   ),
@@ -171,16 +188,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                             onPressed: () {},
                                             style: ButtonStyle(
                                                 alignment:
-                                                    Alignment.centerRight),
+                                                Alignment.centerRight),
                                             child: SizedBox(
                                                 width: w / 2 - w / 3,
                                                 child: Align(
                                                     alignment:
-                                                        Alignment.centerRight,
+                                                    Alignment.centerRight,
                                                     child: Text(
                                                       'Schedule Snoozer',
                                                       textAlign:
-                                                          TextAlign.center,
+                                                      TextAlign.center,
                                                     )))),
                                       )),
                                   Transform.rotate(
@@ -193,7 +210,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                               onPressed: () {},
                                               style: ButtonStyle(
                                                   alignment:
-                                                      Alignment.centerRight),
+                                                  Alignment.centerRight),
                                               child: Text('Locate')),
                                         )),
                                   ),
@@ -203,31 +220,35 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           ),
                           AnimatedContainer(
                             duration: scaleAnimationController.duration!,
-                            transform: Transform.scale(
+                            transform: Transform
+                                .scale(
                               scale: selectedIndex == index
                                   ? scaleAnimation.value
                                   : 1.0,
-                            ).transform,
+                            )
+                                .transform,
                             child: AnimatedContainer(
                               duration: translateAnimationController.duration!,
-                              transform: Transform.translate(
+                              transform: Transform
+                                  .translate(
                                 offset: selectedIndex == index
                                     ? translateAnimation.value
                                     : Offset(0.0, 0.0),
-                              ).transform,
+                              )
+                                  .transform,
                               curve: Curves.linear,
                               child: Card(
                                 color: Colors.transparent,
                                 child: Container(
                                   decoration:
-                                      BoxDecoration(color: Colors.brown[100]),
+                                  BoxDecoration(color: Colors.brown[100]),
                                   child: Row(
                                     children: [
                                       SizedBox(
                                         width: w / 4,
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               list[index]['name']!,
